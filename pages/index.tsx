@@ -69,7 +69,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
+    <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2">
       <Head>
         <title>Elevator Pitch Generator</title>
         <link rel="icon" href="/favicon.ico" />
