@@ -15,6 +15,16 @@ export default function Footer() {
         </a>
         and{" "}
         <a
+          href="https://Conversationalx.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="font-bold hover:underline transition underline-offset-2"
+        >
+          ConversationalX{" "}
+        </a>
+        , {" "}
+        
+        <a
           href="https://vercel.com/"
           target="_blank"
           rel="noreferrer"

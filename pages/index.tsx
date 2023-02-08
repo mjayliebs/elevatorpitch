@@ -13,14 +13,14 @@ import ResizablePanel from "../components/ResizablePanel";
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
-  const [bio, setBio] = useState("");
+  const [pitch, setPitch] = useState("");
   const [vibe, setVibe] = useState<VibeType>("Professional");
-  const [generatedBios, setGeneratedBios] = useState<String>("");
+  const [generatedPitches, setGeneratedPitches] = useState<String>("");
 
-  const defaultBio = 'A Converstional CRM that learns and adapts after each conversations with customers and prospects.';
-  let idea = bio || defaultBio;
+  const defaultPitch = 'A Converstional CRM that learns and adapts after each conversations with customers and prospects.';
+  let idea = pitch || defaultPitch;
 
-  console.log("Streamed response: ", generatedBios);
+  console.log("Streamed response: ", generatedPitches);
 
   const prompt =
     vibe === "Funny"
@@ -29,9 +29,9 @@ const Home: NextPage = () => {
       : `Generate 3 ${vibe} focused elevator pitch ideas based on the idea in ${idea} 100 words in length, each starting with a letter, no numbers and ending in [IDEA]. The first should be business value based, the second focused on market trends, the third a pitch towards early adopters.
         }`;
 
-  const generateBio = async (e: any) => {
+  const generatePitch = async (e: any) => {
     e.preventDefault();
-    setGeneratedBios("");
+    setGeneratedPitches("");
     setLoading(true);
     const response = await fetch("/api/generate", {
       method: "POST",
@@ -62,7 +62,7 @@ const Home: NextPage = () => {
       const { value, done: doneReading } = await reader.read();
       done = doneReading;
       const chunkValue = decoder.decode(value);
-      setGeneratedBios((prev) => prev + chunkValue);
+      setGeneratedPitches((prev) => prev + chunkValue);
     }
 
     setLoading(false);
@@ -76,7 +76,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Header />
-      <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12">
+      <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4">
         <div className="max-w-xl w-full">
           <div className="flex mt-10 items-center space-x-3">
             <Image
@@ -95,8 +95,8 @@ const Home: NextPage = () => {
             </p>
           </div>
           <textarea
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
+            value={pitch}
+            onChange={(e) => setPitch(e.target.value)}
             rows={4}
             className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-5"
             placeholder={
@@ -114,7 +114,7 @@ const Home: NextPage = () => {
           {!loading && (
             <button
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
-              onClick={(e) => generateBio(e)}
+              onClick={(e) => generatePitch(e)}
             >
               Generate your Pitch &rarr;
             </button>
@@ -137,7 +137,7 @@ const Home: NextPage = () => {
         <ResizablePanel>
           <AnimatePresence mode="wait">
             <motion.div className="space-y-10 my-10">
-              {generatedBios && (
+              {generatedPitches && (
                 <>
                   <div>
                     <h3 className="sm:text-3xl text-2xl font-bold text-slate-900 mx-auto">
@@ -145,22 +145,22 @@ const Home: NextPage = () => {
                     </h3>
                   </div>
                   <div className="space-y-8 flex flex-col items-left justify-left max-w-xl mx-auto">
-                    {generatedBios
-                      .substring(generatedBios.indexOf("1") + 3)
+                    {generatedPitches
+                      .substring(generatedPitches.indexOf("1") + 3)
                       .split("[IDEA]")
-                      .map((generatedBio) => {
+                      .map((generatedPitch) => {
                         return (
                           <div
                             className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border text-left"
                             onClick={() => {
-                              navigator.clipboard.writeText(generatedBio);
-                              toast("Bio copied to clipboard", {
+                              navigator.clipboard.writeText(generatedPitch);
+                              toast("pitch copied to clipboard", {
                                 icon: "✂️",
                               });
                             }}
-                            key={generatedBio}
+                            key={generatedPitch}
                           >
-                            <p>{generatedBio}</p>
+                            <p>{generatedPitch}</p>
                           </div>
                         );
                       })}
