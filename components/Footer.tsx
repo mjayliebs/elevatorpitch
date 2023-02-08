@@ -6,15 +6,6 @@ export default function Footer() {
       <div>
         Powered by{" "}
         <a
-          href="https://openai.com/"
-          target="_blank"
-          rel="noreferrer"
-          className="font-bold hover:underline transition underline-offset-2"
-        >
-          OpenAI{" "}
-        </a>
-        and{" "}
-        <a
           href="https://Conversationalx.com/"
           target="_blank"
           rel="noreferrer"
@@ -23,7 +14,15 @@ export default function Footer() {
           ConversationalX{" "}
         </a>
         , {" "}
-        
+        <a
+          href="https://openai.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="font-bold hover:underline transition underline-offset-2"
+        >
+          OpenAI, {" "}
+        </a>
+        and{" "}
         <a
           href="https://vercel.com/"
           target="_blank"

@@ -1,14 +1,15 @@
-# [TwitterBio.com](https://www.twitterbio.com/)
+# [ConversationalX](https://Conversationalx.com)
 
-This project generates Twitter bios for you using AI.
+This project generates Business Elevator Pitch ideas for you, using AI.
 
-[![Twitter Bio Generator](./public/screenshot.png)](https://www.twitterbio.com)
+[![Elevator Pitch Generator](./public/screenshot2.png)](Private API Key - so no link at this point)
 
 ## How it works
 
-This project uses the [OpenAI GPT-3 API](https://openai.com/api/) (specifically, text-davinci-003) and [Vercel Edge functions](https://vercel.com/features/edge-functions) with streaming. It constructs a prompt based on the form and user input, sends it to the GPT-3 API via a Vercel Edge function, then streams the response back to the application.
+This project uses the [OpenAI GPT-3 API](https://openai.com/api/) (specifically, text-davinci-003) and [Vercel Edge functions](https://vercel.com/features/edge-functions) with streaming. It constructs a set of prompts based on Prompt Engineering and user input, sends it to the GPT-3 API via a Vercel Edge function, then streams the response back to the application. It is based on the work of Nutlope (Hassan El Mghari) and the repository and code he created here:  https://github.com/Nutlope/twitterbio [Twitter Bios].
 
-Video and blog post coming soon on how to build apps with OpenAI and Vercel Edge functions!
+I am not a developer by trade, but have fun exploring. Using Vercel to build and modify this (and a few other applications0) has been a lot of fun! I will likely be making tweaks to the code and prompts as well (my area of focus).
+
 
 ## Running Locally
 
@@ -24,4 +25,4 @@ npm run dev
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Nutlope/twitterbio&env=OPENAI_API_KEY&project-name=twitter-bio-generator&repo-name=twitterbio)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/mjayliebs/elevatorpitch&env=OPENAI_API_KEY&project-name=elevatorpitch&repo-name=elevatorpitch)
