@@ -76,7 +76,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Header />
-      <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mt-20">
+      <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12">
         <div className="max-w-xl w-full">
           <div className="flex mt-10 items-center space-x-3">
             <Image
