@@ -77,10 +77,6 @@ const Home: NextPage = () => {
 
       <Header />
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mt-20">
-        <h3 className="sm:text-4xl text-42l max-w-2xl font-bold text-slate-900">
-          Generate your next Business Pitch
-        </h3>
-        <p className="text-slate-500 mt-5">.</p>
         <div className="max-w-xl w-full">
           <div className="flex mt-10 items-center space-x-3">
             <Image
@@ -91,7 +87,7 @@ const Home: NextPage = () => {
               className="mb-5 sm:mb-0"
             />
             <p className="text-left font-medium">
-              What is your idea, be brief...{" "}
+              What is your idea, be brief... {" "}
               <span className="text-slate-500">
                 (or not)
               </span>
@@ -155,7 +151,7 @@ const Home: NextPage = () => {
                       .map((generatedBio) => {
                         return (
                           <div
-                            className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border"
+                            className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border text-left"
                             onClick={() => {
                               navigator.clipboard.writeText(generatedBio);
                               toast("Bio copied to clipboard", {
