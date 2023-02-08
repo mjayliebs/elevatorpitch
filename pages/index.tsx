@@ -17,13 +17,16 @@ const Home: NextPage = () => {
   const [vibe, setVibe] = useState<VibeType>("Professional");
   const [generatedBios, setGeneratedBios] = useState<String>("");
 
+  const defaultBio = 'A Converstional CRM that learns and adapts after each conversations with customers and prospects.';
+  let idea = bio || defaultBio;
+
   console.log("Streamed response: ", generatedBios);
 
   const prompt =
     vibe === "Funny"
-      ? `Generate 3 business focused elevator pitch ideas for ${bio} 100 words in length, each ending in [IDEA]. The first should be funny, the second very serious, the third a parity full of buzzwords.
+      ? `Generate 3 business focused elevator pitch ideas for ${idea} 100 words in length, each starting with a letter in bold, no numbers and ending in [IDEA]. The first should be funny, the second very serious, the third a parity full of buzzwords.
         }`
-      : `Generate 3 ${vibe} focused elevator pitch ideas for ${bio} 100 words in length, each ending in [IDEA]. The first should be business value based, the second focused on market trends, the third a pitch towards early adopters.
+      : `Generate 3 ${vibe} focused elevator pitch ideas based on the idea in ${idea} 100 words in length, each starting with a letter in bold, no numbers and ending in [IDEA]. The first should be business value based, the second focused on market trends, the third a pitch towards early adopters.
         }`;
 
   const generateBio = async (e: any) => {
@@ -76,16 +79,16 @@ const Home: NextPage = () => {
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mt-20">
         <a
           className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-gray-600 shadow-md transition-colors hover:bg-gray-100 mb-5"
-          href="https://github.com/Nutlope/twitterbio"
+          href="https://github.com/mjayliebs/elevatorpitch"
           target="_blank"
           rel="noopener noreferrer"
         >
           <Github />
           <p>Star on GitHub</p>
         </a>
-        <h1 className="sm:text-6xl text-4xl max-w-2xl font-bold text-slate-900">
+        <h3 className="sm:text-4xl text-42l max-w-2xl font-bold text-slate-900">
           Generate your next Business Pitch instantly
-        </h1>
+        </h3>
         <p className="text-slate-500 mt-5">.</p>
         <div className="max-w-xl w-full">
           <div className="flex mt-10 items-center space-x-3">
@@ -126,7 +129,7 @@ const Home: NextPage = () => {
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
               onClick={(e) => generateBio(e)}
             >
-              Generate your bio &rarr;
+              Generate your Pitch &rarr;
             </button>
           )}
           {loading && (
@@ -150,11 +153,11 @@ const Home: NextPage = () => {
               {generatedBios && (
                 <>
                   <div>
-                    <h2 className="sm:text-4xl text-3xl font-bold text-slate-900 mx-auto">
+                    <h3 className="sm:text-3xl text-2xl font-bold text-slate-900 mx-auto">
                       Your Generated Pitches
-                    </h2>
+                    </h3>
                   </div>
-                  <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto">
+                  <div className="space-y-8 flex flex-col items-center justify-left max-w-xl mx-auto">
                     {generatedBios
                       .substring(generatedBios.indexOf("1") + 3)
                       .split("[IDEA]")
