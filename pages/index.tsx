@@ -146,7 +146,7 @@ const Home: NextPage = () => {
                   </div>
                   <div className="space-y-8 flex flex-col items-left justify-left max-w-xl mx-auto">
                     {generatedPitches
-                      .substring(generatedPitches.indexOf("1") + 3)
+                      .substring(generatedPitches.indexOf("") + 0)
                       .split("[IDEA]")
                       .map((generatedPitch) => {
                         return (
