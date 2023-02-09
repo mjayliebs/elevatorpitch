@@ -24,9 +24,9 @@ const Home: NextPage = () => {
 
   const prompt =
     vibe === "Funny"
-      ? `Generate 3 business focused elevator pitch ideas for ${idea} 100 words in length, each starting with a letter, no numbers and ending in [IDEA]. The first should be funny, the second very serious, the third a parity full of buzzwords.
+      ? `Generate 3 business focused elevator pitch ideas for ${idea} 100 words in length, each idea starts with "Pitch", no numbers or letters and ends with [IDEA]. The first should be funny, the second very serious, the third a parity full of buzzwords.
         }`
-      : `Generate 3 ${vibe} focused elevator pitch ideas based on the idea in ${idea} 100 words in length, each starting with a letter, no numbers and ending in [IDEA]. The first should be business value based, the second focused on market trends, the third a pitch towards early adopters.
+      : `Generate 3 ${vibe} focused elevator pitch ideas based on the idea in ${idea} 100 words in length, each idea starts with "Pitch", no numbers or letters and ending in [IDEA]. The first should be business value based, the second focused on market trends, the third a pitch towards early adopters.
         }`;
 
   const generatePitch = async (e: any) => {
